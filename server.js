@@ -22,3 +22,9 @@ app.listen(port,()=> {
     console.log("prendido");
 });
 
+    // Poner el PostMAn EMEE
+//{ "anana" : { "precio":28,"cant":1},
+//"naranja":{"precio":10,"cant":10},
+//"brocoli":{"precio":30, "cant":2 },
+//"papa": {"precio" : 5, "cant": 5 }
+//}
