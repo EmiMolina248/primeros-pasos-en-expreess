@@ -32,8 +32,12 @@ app.post('/verdu', function(req, res){
 //"brocoli":{"precio":30, "cant":2,"tipo": "verdura" },
 //"papa": {"precio" : 5, "cant": 5, "tipo": "verdura" },
 //"pescado": {"precio":"25","cant": 2, "tipo": "carne"}
-//}
+//aklmsajnjanaisamkm}
 
+//postman[
+//[1,2],
+//  [3,4]
+//]
 app.post('/matriz',function(req,res){
     let request = req.body;
     let cont = (request[0][0] * request[1][1]) - (request[0][1] * request[1][0]) ;
