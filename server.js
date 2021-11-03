@@ -1,30 +1,33 @@
 const bodyParser = require('body-parser') ;
+const { response } = require('express');
 const express = require("express"); 
 const app = express();
 const port = 3000;
 let request;
 app.use(express.json());
 
-app.get('/', function(req, res) {
-    res.send(`Holaa!bienvenido a la verdu, servidor funcionando y en el puerto ${port}` );
-})
-app.post('/verdu', function(req, res){
-    request = req.body;
-    console.log(request);
-    res.send(`El precio del anana es $${request.anana.precio} , el de la naranja es $${request.naranja.precio}, el del brocoli es $${request.brocoli.precio} y el de la papa es $${request.papa.precio}`);
-});
-
-app.get('/verdu/PrecioTotal',function(req, res){
-    res.send(`El total de tu pedido es $${request.anana.precio*request.anana.cant + request.naranja.precio*request.naranja.cant + request.brocoli.precio*request.brocoli.cant + request.papa.precio*request.papa.cant}`);
-})
-
 app.listen(port,()=> {
     console.log("prendido");
 });
 
-    // Poner el PostMAn EMEE
-//{ "anana" : { "precio":28,"cant":1},
-//"naranja":{"precio":10,"cant":10},
-//"brocoli":{"precio":30, "cant":2 },
-//"papa": {"precio" : 5, "cant": 5 }
-//}
+app.get('/', function(req, res) {
+    res.send(`Holaa!bienvenido a la verdu, servidor funcionando y en el puerto ${port}` );
+})
+
+app.post('/verdu', function(req, res){
+    request = req.body;
+    let cont = 0;
+    for(let index  in request){
+        if(request[index].tipo == 'verdura' || request[index].tipo == 'fruta'){
+            //JSON.stringify(request)
+            console.log(`El valor de ${index} es de $${request[index].precio}`);
+            cont =  cont + (req.body[index].precio*req.body[index].cant);
+        }
+    }
+    res.send("El total de tu pedido es $ "+ cont);
+});
+
+
+
+
+
