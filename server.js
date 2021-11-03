@@ -27,6 +27,21 @@ app.post('/verdu', function(req, res){
     res.send("El total de tu pedido es $ "+ cont);
 });
 
+//{ "anana" : { "precio":28,"cant":1, "tipo": "fruta"},
+//"naranja":{"precio":10,"cant":10, "tipo": "fruta"},
+//"brocoli":{"precio":30, "cant":2,"tipo": "verdura" },
+//"papa": {"precio" : 5, "cant": 5, "tipo": "verdura" },
+//"pescado": {"precio":"25","cant": 2, "tipo": "carne"}
+//}
+
+app.post('/matriz',function(req,res){
+    let request = req.body;
+    let cont = (request[0][0] * request[1][1]) - (request[0][1] * request[1][0]) ;
+    res.send(`El determinante de esta matriz es ${JSON.stringify(cont)}`);
+});
+
+
+
 
 
 
